@@ -1,0 +1,22 @@
+name: Download the leaves
+on:
+    workflow_dispatch:
+permissions:
+    actions: write
+    id-token: write
+    contents: write
+jobs:
+    download:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout the repository
+              uses: actions/checkout@v4
+            - name: Download the leaves
+              run: |
+                  wget https://www.example.com/leaves.zip
+                  unzip leaves.zip
+                  rm leaves.zip
+            - name: Commit the changes
+              run: |
+                  git config --global user.name "GitHub Actions"
+                  git config --global user.email "
