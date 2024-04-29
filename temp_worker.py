@@ -5,7 +5,7 @@ from httpxlib import make_request
 
 async def get_leaves(client:httpx.AsyncClient,url: str, start: int, end: int)->dict:
     print (f"Getting leaves from {start} to {end}")
-    response = make_request(client=client, url=f"{url}/ct/v1/get-entries?start={start}&end={end}",method="GET")
+    response = await make_request(client=client, url=f"{url}/ct/v1/get-entries?start={start}&end={end}",method="GET")
     return response.json()
 
 async def process_worker(result:dict):
