@@ -13,10 +13,14 @@ jobs:
               uses: actions/checkout@v4
             - name: Download the leaves
               run: |
-                  wget https://www.example.com/leaves.zip
-                  unzip leaves.zip
-                  rm leaves.zip
+                    pip install -r requirements.txt
+                    python try3.py
             - name: Commit the changes
               run: |
-                  git config --global user.name "GitHub Actions"
-                  git config --global user.email "
+                    git pull origin main 
+                    git config --global user.name "GitHub Actions"
+                    git config --global user.email "shantanu561993@gmail.com"
+                    git add --all
+                    git commit -m "Download the leaves"
+                    git push -f origin main
+
