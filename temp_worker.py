@@ -19,7 +19,7 @@ async def process_worker(result:dict):
     print (f"Block size: {block_size}")
     client = httpx.AsyncClient()
     for i in range(0, cert_count, block_size*10):
-        file_name = f"{result['description']}-{i}-{i+block_size*10}.pkl"
+        file_name = f"results/{result['description']}-{i}-{i+block_size*10}.pkl"
         tasks = [get_leaves(client, result['url'], j, j+block_size) for j in range(i, i+block_size*10, block_size)]
         results = await asyncio.gather(*tasks)
         # Store results in a file

@@ -67,15 +67,6 @@ async def main():
     # Load results from pickle
     with open('results.pkl', 'rb') as f:
         loaded_results = pickle.load(f)
-
-    # # Print loaded results
-    # for result in loaded_results:
-    #     if "error" not in result.keys():
-    #         print(result['description'])
-    #         print("    \\- URL:            {}".format(result['url']))
-    #         print("    \\- Owner:          {}".format(result['operated_by']))
-    #         print("    \\- Cert Count:     {}".format(result['tree_size']-1, grouping=True))
-    #         print("    \\- Max Block Size: {}\n".format(result['block_size']))
     
     for result in loaded_results:
         if "error" not in result.keys():
