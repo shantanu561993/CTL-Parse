@@ -12,10 +12,12 @@ jobs:
             - name: Checkout the repository
               uses: actions/checkout@v4
             - name: Download the leaves
+              continue-on-error: true
               run: |
                     pip install -r requirements.txt
                     python try3.py
             - name: Commit the changes
+              continue-on-error: true
               run: |
                     git pull origin main 
                     git config --global user.name "GitHub Actions"
